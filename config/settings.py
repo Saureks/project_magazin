@@ -76,18 +76,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-<<<<<<<<< Temporary merge branch 1
-        'ENGINE': 'django.db.backends.postgresgl',
-        'NAME': 'magazin',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-=========
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'q',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost'
->>>>>>>>> Temporary merge branch 2
     }
 }
 
