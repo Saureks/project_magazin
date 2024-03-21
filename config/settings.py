@@ -76,8 +76,18 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+<<<<<<<<< Temporary merge branch 1
+        'ENGINE': 'django.db.backends.postgresgl',
+        'NAME': 'magazin',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+=========
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'q',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': 'localhost'
+>>>>>>>>> Temporary merge branch 2
     }
 }
 
@@ -126,3 +136,6 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
