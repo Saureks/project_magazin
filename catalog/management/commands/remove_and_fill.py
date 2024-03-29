@@ -2,7 +2,7 @@ import json
 
 from django.core.management import BaseCommand
 
-from catalog.models import Category, Product
+from catalog.models import Product, Category
 
 
 class Command(BaseCommand):
@@ -39,6 +39,6 @@ class Command(BaseCommand):
                         name=product["fields"]["name"],
                         description=product["fields"]["description"],
                         category=Category.objects.get(pk=product["fields"]["category"]),
-                        price=product["fields"]["purchase_price"])
+                        purchase_price=product["fields"]["purchase_price"])
             )
         Product.objects.bulk_create(product_for_create)
