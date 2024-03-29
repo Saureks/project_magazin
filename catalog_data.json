@@ -31,7 +31,7 @@
       "description": "Ноутбук Lenovo ThinkPad 58. 8 ядер, 16 потоков, 16Gb оперативной памяти",
       "image": "",
       "category": 1,
-      "price": 50000,
+      "purchase_price": 50000,
       "created_at": null,
       "updated_at": null
     }
@@ -44,7 +44,7 @@
       "description": "Флешка Transcend 700 на 8Gb",
       "image": "",
       "category": 2,
-      "price": 500,
+      "purchase_price": 500,
       "created_at": null,
       "updated_at": null
     }

@@ -42,3 +42,4 @@ class Command(BaseCommand):
                         purchase_price=product["fields"]["purchase_price"])
             )
         Product.objects.bulk_create(product_for_create)
+
