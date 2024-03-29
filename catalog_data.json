@@ -1,0 +1,31 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "IPhone",
+      "description": "США"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Xiaomi",
+      "description": "Китай"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "name": "IPhone 15 pro",
+      "description": "IPhone 15 Pro 128gb 2024 года",
+      "Image": "preview/iPhone_15_Pro_Dark_Red_AwC83.jpg",
+      "category": 1,
+      "purchase_price": 100000,
+      "created_at": "2024-03-21T23:38:06Z",
+      "updated_at": "2024-03-21T23:38:07Z"
+    }
+  }
+]
