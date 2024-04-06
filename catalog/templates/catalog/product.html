@@ -1,26 +1,21 @@
 {% extends "catalog/base.html" %}
 {% load my_tags %}
 {% block content %}
-
-{% for object in object_list %}
-<div class="col-3">
+<div class="col-6">
 
     <div class="card mb-4 box-shadow">
         <div class="card-header">
             <h4 class="my-0 font-weight-normal">{{ object.name }}</h4>
         </div>
         <div class="card-body">
-            <img class="card-img-top" src="{% mymedia object.image %}" style="width:250px;" alt="Product image">
+            <img class="card-img-top" src="{% mymedia object.image %}" alt="Product image">
             <h1 class="card-title pricing-card-title">{{ object.purchase_price }} руб.</h1>
             <ul class="list-unstyled mt-3 mb-4 text-start m-3">
-                <li>{{ object.description|slice:":100" }}</li>
+                <li><b>Описание: </b>{{ object.description }}</li>
             </ul>
-            <a href="{% url 'catalog:product' object.pk %}" type="button" class="btn btn-lg btn-block btn-outline-info">Описание</a>
             <button type="button" class="btn btn-lg btn-block btn-outline-primary">Купить</button>
         </div>
     </div>
 
 </div>
-{% endfor %}
-
 {% endblock %}
