@@ -1,24 +1,44 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView, TemplateView
 
 from catalog.models import Product
 
 
-def index(request):
-    context = {
-        "object_list": Product.objects.all()
-    }
-    return render(request, 'catalog/index.html', context)
+class ProductListView(ListView):
+    model = Product
+    template_name = 'catalog/index.html'
 
 
-def contacts(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        phone = request.POST.get('phone')
-        message = request.POST.get('message')
-        print(f"{name} ({phone}): {message}")
-    return render(request, 'catalog/contact.html')
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'catalog/product.html'
 
 
-def product(request, pk):
-    context = {'object': Product.objects.get(pk=pk)}
-    return render(request, 'catalog/product.html', context)
+class ContactsView(TemplateView):
+    template_name = 'catalog/contact.html'
+
+    def post(self, request, *args, **kwargs):
+        name = request.POST.get("name")
+        phone = request.POST.get("phone")
+        message = request.POST.get("message")
+        print(f"{name} - {phone} - {message}")
+        context = {
+            "name": name,
+            "phone": phone,
+            "message": message
+        }
+        return render(request, self.template_name, context)
+
+
+# def contacts(request):
+#     if request.method == 'POST':
+#         name = request.POST.get('name')
+#         phone = request.POST.get('phone')
+#         message = request.POST.get('message')
+#         print(f"{name} ({phone}): {message}")
+#     return render(request, 'catalog/contact.html')
+
+
+# def product(request, pk):
+#     context = {'object': Product.objects.get(pk=pk)}
+#     return render(request, 'catalog/product.html', context)
