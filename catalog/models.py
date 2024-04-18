@@ -1,4 +1,4 @@
-from datetime import date
+
 
 from django.db import models
 
@@ -36,3 +36,17 @@ class Product(models.Model):
     class Meta:
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
+
+
+class Version(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="Продукт")
+    version_number = models.PositiveIntegerField(verbose_name="Номер версии")
+    version_name = models.CharField(max_length=100, **NULLABLE, verbose_name="Название версии")
+    is_actual = models.BooleanField(default=False, verbose_name="Текущая версия")
+
+    def __str__(self):
+        return f"{self.version_number} ({self.version_name}) - {self.product}"
+
+    class Meta:
+        verbose_name = "Версия"
+        verbose_name_plural = "Версии"
